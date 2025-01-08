@@ -1,0 +1,18 @@
+
+#http://localhost:8181/servicea/api
+spring:
+  cloud:
+   gateway:
+     routes:
+       - id: SERVICE-A
+         uri: lb://SERVICE-A
+         predicates:
+           - Path=/servicea/api/**
+       - id: SERVICE-B
+         uri: lb://SERVICE-B
+         predicates:
+           - Path=/serviceb/api/**
+       - id: SERVICE-C
+         uri: lb://SERVICE-C
+         predicates:
+           - Path=/servicec/api/**
